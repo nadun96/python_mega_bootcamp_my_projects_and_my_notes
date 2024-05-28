@@ -1,0 +1,32 @@
+[
+    {
+        "question_text": "What are dolphins?",
+        "alternatives": [
+            "Fish",
+            "Mammals",
+            "Reptiles",
+            "Amphibians"
+        ],
+        "correct_answer": 2
+    },
+    {
+        "question_text": "What is the capital of France?",
+        "alternatives": [
+            "London",
+            "Paris",
+            "Berlin",
+            "Madrid"
+        ],
+        "correct_answer": 2
+    },
+    {
+        "question_text": "What is the capital of Germany?",
+        "alternatives": [
+            "London",
+            "Paris",
+            "Berlin",
+            "Madrid"
+        ],
+        "correct_answer": 3
+    }
+]

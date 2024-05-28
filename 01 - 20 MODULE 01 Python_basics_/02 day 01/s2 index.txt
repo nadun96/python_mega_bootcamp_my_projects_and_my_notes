@@ -1,0 +1,50 @@
+2. ▶️ The Four Types of Computer Programs
+3. ▶️ Today's Goals #print #variables #functions #lists
+Stop
+4. ▶️ Installing Python and PyCharm
+5. ▶️ Create and Run Your First Python Program #print #strings
+6. ▶️ Getting User Input #input #variables
+- keywords, return type of input function
+7. ▶️ Storing User Input #lists
+8. ⚛️ Coding Experiments
+
+
+Python and PyCharm Download Links
+Please download Python and PyCharm using the links provided down below. The next video will guide you through the installation process of Python and PyCharm on Windows, Mac, and Linux.
+
+Note: If you already have another favorite editor/IDE, feel free to use that instead of PyCharm. The code will work exactly the same in any editor/IDE.
+
+Also, if you already have a Python interpreter 3.10 or newer installed, you don't need to install the one suggested below.
+
+
+
+Windows (32-bit):
+Python: https://www.python.org/ftp/python/3.10.0/python-3.10.0.exe
+
+PyCharm: https://download.jetbrains.com/python/pycharm-community-2022.1.4.exe
+
+
+
+Windows (64-bit):
+Python: https://www.python.org/ftp/python/3.10.0/python-3.10.0-amd64.exe
+
+PyCharm: https://download.jetbrains.com/python/pycharm-community-2022.1.4.exe
+
+
+
+Mac (Intel):
+Python: https://www.python.org/ftp/python/3.10.11/python-3.10.11-macos11.pkg
+
+PyCharm: https://download.jetbrains.com/python/pycharm-community-2022.1.4.dmg
+
+
+
+Mac (Silicon / M-Series):
+Python: https://www.python.org/ftp/python/3.10.11/python-3.10.11-macos11.pkg
+
+PyCharm: https://download.jetbrains.com/python/pycharm-community-2022.1.4-aarch64.dmg
+
+
+
+Linux:
+Please follow the instructions in the next video where you will find the commands to download and install Python and PyCharm.

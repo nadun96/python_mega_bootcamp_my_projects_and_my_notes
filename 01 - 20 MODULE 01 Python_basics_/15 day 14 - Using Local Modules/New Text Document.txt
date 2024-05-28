@@ -1,0 +1,235 @@
+Define a  water_state function that:
+
+1. gets a temperature argument
+
+2. returns the string "Solid" if the temperature is less than or equal to 0
+
+3. returns "Liquid" if the temperature is greater than 0, but less than 100.
+
+4. returns "Gas" if the temperature is greater than or equal to 100.
+
+def water_state(temperature):
+    if temperature <= 0:
+        return "Solid"
+    elif temperature < 100:
+        return "Liquid"
+    else:
+        return "Gas"
+
+# Example usage:
+result1 = water_state(-5)
+print(result1)  # Output: Solid
+
+result2 = water_state(25)
+print(result2)  # Output: Liquid
+
+result3 = water_state(110)
+print(result3)  # Output: Gas
+
+
+-------------------------------------------
+
+
+
+In the previous exercise, we hardcoded the values 0 and 100. However, it is better to place those values in constants. Therefore, your task is to:
+
+1. create a FREEZING_POINT and a BOILING_POINT variable and store the values 0 and 100 in them respectively.
+
+2. modify the function of the previous exercise by using those variables instead of the hardcoded 0 and 100 values. The previous function is given in the code area.
+
+def water_state(temperature):
+    if temperature <= 0:
+        return "Solid"
+    elif 0 < temperature < 100:
+        return "Liquid"
+    else:
+        return "Gas"
+
+FREEZING_POINT = 0
+BOILING_POINT = 100
+
+def water_state(temperature):
+    if temperature <= FREEZING_POINT:
+        return "Solid"
+    elif FREEZING_POINT < temperature < BOILING_POINT:
+        return "Liquid"
+    else:
+        return "Gas"
+
+# Example usage:
+result1 = water_state(-5)
+print(result1)  # Output: Solid
+
+result2 = water_state(25)
+print(result2)  # Output: Liquid
+
+result3 = water_state(110)
+print(result3)  # Output: Gas
+
+-----------------------------------------------
+
+
+Coding Exercise 3
+Define a function that:
+
+(1) takes a temperature as a parameter
+
+(2) returns "Hot" if the temperature is greater than 25
+
+(3) returns "Warm" if the temperature is between 15 and 25, including 15 and 25.
+
+(4) returns "Cold" if the temperature is less than 15.
+
+If I called your function with foo(10) it would return "Cold". 
+
+foo(15) or foo(16) or foo(25) would all return "Warm" and foo(26) would return "Hot".
+
+
+def temperature_feeling(temperature):
+    if temperature > 25:
+        return "Hot"
+    elif 15 <= temperature <= 25:
+        return "Warm"
+    else:
+        return "Cold"
+
+# Example usage:
+result1 = temperature_feeling(10)
+print(result1)  # Output: Cold
+
+result2 = temperature_feeling(15)
+print(result2)  # Output: Warm
+
+result3 = temperature_feeling(25)
+print(result3)  # Output: Warm
+
+result4 = temperature_feeling(26)
+print(result4)  # Output: Hot
+
+----------------------------------------
+
+Bug-Fixing Exercises
+Bug-Fixing Exercise 1
+The program depicted below consists of two Python files. The program tries to count and print out the number of periods in the "Trees are good. Grass is green." . However, running the main.py file returns an error. Please fix the error.
+
+main.py:
+
+import functions
+ 
+nr_of_periods = count("Trees are good. Grass is green.")
+print(nr_of_periods)
+
+
+functions.py:
+
+def count(phrase):
+    return phrase.count('.')
+
+Solution
+
+Day 14, Bug Fixing Exercise 1
+Explanation
+
+Line 2 of main.py was
+
+nr_of_periods = count("Trees are good. Grass is green.")
+
+but it should be
+nr_of_periods = functions.count("Trees are good. Grass is green.")
+We refer to the functions module to access the count function defined in functions.py.
+
+import functions
+
+nr_of_periods = functions.count("Trees are good. Grass is green.")
+print(nr_of_periods)
+
+-
+
+Bug-Fixing Exercise 2
+The same program as in exercise 1 now is throwing yet another error. Hunt the error down and fix it.
+
+main.py:
+
+import functions.py
+ 
+nr_of_periods = functions.count("Trees are good. Grass is green.")
+print(nr_of_periods)
+
+
+functions.py:
+
+def count(phrase):
+    return phrase.count('.')
+Solution
+
+Day 14, Bug Fixing Exercise 2
+Explanation
+
+Line 1 was
+
+import functions.py
+
+but it should be
+
+import functions
+
+import functions
+
+nr_of_periods = functions.count("Trees are good. Grass is green.")
+print(nr_of_periods)
+
+-
+
+Bug-Fixing Exercise 3
+There is another error in the same program. Please fix the error.
+
+main.py:
+
+from functions import count
+ 
+nr_of_periods = functions.count("Trees are good. Grass is green.")
+print(nr_of_periods)
+
+
+functions.py:
+
+def count(phrase):
+    return phrase.count('.')
+Solution
+
+import functions
+
+nr_of_periods = functions.count("Trees are good. Grass is green.")
+print(nr_of_periods)
+
+from functions import count
+
+nr_of_periods = count("Trees are good. Grass is green.")
+print(nr_of_periods)
+
+------------------------
+
+FAQ
+Q1: In the app, we imported functions.py from main.py. Is it possible to import main.py from functions.py?
+
+A: Yes, that is technically possible. You can do import main in functions.py. However, that import doesn't make much sense. We usually import the backend to the frontend. The backend is the script where the processing is done (i.e., reading and writing the to-do files), and the frontend is the code that constructs the user interface (i.e., the command line).
+
+Q2: Can we import more than one .py file from the main.py file?
+
+A: Yes, that is possible, and as the program expands, it is recommended to create more backend files, and you can import all those files from main.py. For example, you might want to create some functions which send out the to-do items by email to your email address. You might also want to create some functions that produce a PDF with the to-do items inside. It is recommended to write the email and the PDF functions in separate modules and then import those modules from the main module. For example, if we had these files:
+
+main.py
+
+functions.py
+
+pdf.py
+
+email.py
+
+In main.py we would have these lines:
+
+import functions
+import pdf
+import email
+-----------------------------------------
+

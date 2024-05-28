@@ -1,0 +1,69 @@
+Zip Function
+------------
+list x
+list y
+for x , y in zip(x,y):
+	// zip returns a tuple of x an y
+	// [(x0,y0), (x1,y1),...]
+	file = open("file path\name.extension" ,  "w r a" )
+	file.write(x)
+	
+
+
+**
+Please download the three text files a.txt, b.txt, and c.txt from the resources and place them in your computer IDE.
+
+Then, create a program that:
+
+1. reads each text file and
+
+2. prints out the content of each file in the command line.
+
+The expected output would be like the following:
+
+filenames = ['a.txt', 'b.txt', 'c.txt']
+
+for filename in filenames:
+    file = open(filename, 'r')
+    content = file.read()
+    print(content)
+
+**
+Explanation
+
+ Line 3 and 4 were
+
+file.write("100.12")
+
+file.write("111.23")
+
+but they should have been
+
+file.write("100.12\n")
+
+file.write("111.23\n")
+
+The \n are added to create breaks after each line.
+
+file = open("data.txt", 'w')
+
+file.write("100.12\n")
+file.write("111.23\n")
+
+file.close()
+
+**
+Q1: Can Python open other types of files rather than .txt files?
+
+A: First, you should know that there are two types of files, binary and non-binary. Non-binary files are files such as .txt, .csv, .py, .html, .json, .csv and any other file whose content can be viewed on any text editor program (e.g., Notepad, TextEdit, etc.).  You can read and write content in non-binary using the same open function. For example:
+
+file = open("home.html", 'w')
+file.write("<html>\n <h1>This is the home page</h1>\n</html>")
+file.close()
+The code above would create an HTML file. The content we wrote in that file is HTML code, and HTML code is just non-binary content (i.e., text).
+
+On the other hand, examples of binary files are .xlsx, .mp4, .docx, and other files whose content cannot be correctly handled through a text editor. Such files need specific programs (i.e., Excel, Media Player, Microsoft Word, etc.) that let users edit and view such files. Therefore, you cannot view the content of such files in Python either. That being said, it is still possible to use the Python open function to handle such files. However, the use cases of handling binary files are specific and rare. Therefore we will not cover the handling of binary files right now and will focus on more crucial features of the language instead.
+
+Q2: I have heard that it is better to use the Python with context manager to handle files. Why didn't we do that today?
+
+A: We will learn that eventually, but we are taking things step by step. We will cover the with context manager on Day 8.

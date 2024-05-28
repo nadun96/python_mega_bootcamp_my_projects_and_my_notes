@@ -1,0 +1,119 @@
+Coding Exercise 1
+Write a script that generates the following GUI.
+
+# NOTE: This script runs only on your local IDE
+import PySimpleGUI as sg
+
+feet_label = sg.Text("Enter feet: ")
+feet_input = sg.Input()
+
+inches_label = sg.Text("Enter inches: ")
+inches_input = sg.Input()
+
+button = sg.Button("Convert")
+
+window = sg.Window("Convertor",
+                   layout=[[feet_label, feet_input],
+                           [inches_label, inches_input],
+                           [button]])
+
+window.read()
+window.close()
+
+
+Bug-Fixing Exercises
+Bug-Fixing Exercise 1
+import PySimpleGUI as sg
+ 
+label = sg.Text("What are dolphins?")
+option1 = sg.Radio("Amphibians", group_id="question1")
+option2 = sg.Radio("Fish", group_id="question1")
+option3 = sg.Radio("Mammals", group_id="question1")
+option4 = sg.Radio("Birds", group_id="question1")
+ 
+window = sg.Window("File Compressor",
+                   layout=[[label],
+                           [option1, 
+                            option2, 
+                            option3, 
+                            option4],
+                           ])
+ 
+window.read()
+window.close()
+The script above generates the output below:
+
+
+Change the script so that the output below is generated instead:
+
+
+Solution
+
+Explanation
+
+Lines 9-15 were
+
+window = sg.Window("File Compressor",
+
+                   layout=[[label],
+
+                           [option1, 
+
+                           option2, 
+
+                           option3, 
+
+                           option4],
+
+                           ])
+
+but they should be
+
+window = sg.Window("File Compressor",
+
+                   layout=[[label],
+
+                           [option1],
+
+                           [option2],
+
+                           [option3],
+
+                           [option4],
+
+                           ]) 
+
+Each of the options should be served as a list to the layout.
+
+Note: that the code below will not run because the editor does not support PySimpleGUI. Use your local IDE to run the code instead.
+
+
+import PySimpleGUI as sg
+
+label = sg.Text("What are dolphins?")
+option1 = sg.Radio("Amphibians", group_id="question1")
+option2 = sg.Radio("Fish", group_id="question1")
+option3 = sg.Radio("Mammals", group_id="question1")
+option4 = sg.Radio("Birds", group_id="question1")
+
+window = sg.Window("File Compressor",
+                   layout=[[label],
+                           [option1],
+                           [option2],
+                           [option3],
+                           [option4],
+                           ])
+
+window.read()
+window.close()
+---------------------------------------------------------
+
+Q1: I want to give the app to someone else to use it, but that person does not have Python installed. How can that person use the app?
+
+A: You need to convert the .py file into an .exe (for Windows users), an .app file (for Mac users) or a .deb file (for Linux users). You will learn how to do that on Day 18.
+
+Q2: The GUIs we are building work only as desktop programs. How can we make a web app?
+
+PySimpleGUI is only able to create desktop GUIs. To make web apps, you need to use a Python web framework. The most popular web frameworks are Django, Flask, and Streamlit. In fact, Python is way better for building web apps. We will eventually build a Todo List web app on Day 19.
+
+-------------------------------------------

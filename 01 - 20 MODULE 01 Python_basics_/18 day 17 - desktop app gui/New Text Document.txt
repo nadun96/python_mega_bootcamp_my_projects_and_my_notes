@@ -1,0 +1,161 @@
+ Coding Exercise 1
+Create a desktop GUI program that gets feet and inches from the user and outputs the results in meters.
+
+main.py
+# NOTE: This script runs only on your local IDE
+import PySimpleGUI as sg
+from converters import convert
+
+feet_label = sg.Text("Enter feet: ")
+feet_input = sg.Input(key="feet")
+
+inches_label = sg.Text("Enter inches: ")
+inches_input = sg.Input(key="inches")
+
+button = sg.Button("Convert")
+output_label = sg.Text("", key="output")
+
+window = sg.Window("Convertor",
+                   layout=[[feet_label, feet_input],
+                           [inches_label, inches_input],
+                           [button, output_label]])
+
+while True:
+    event, values = window.read()
+    feet = float(values["feet"])
+    inches = float(values["inches"])
+
+    result = convert(feet, inches)
+    window["output"].update(value=f"{result} m", text_color="white")
+
+
+window.close()
+
+converters.py
+
+def convert(feet, inches):
+    meters = feet * 0.3048 + inches * 0.0254
+    return meters
+---------------------
+Bug-Fixing Exercises
+Bug-Fixing Exercise 1
+The program down below is supposed to convert kilometers to miles.
+
+import PySimpleGUI as sg
+ 
+ 
+def km_to_miles(km):
+    return km / 1.6
+ 
+ 
+label = sg.Text("Kilometers: ")
+input_box = sg.InputText(tooltip="Enter todo", key="kms")
+miles_button = sg.Button("Convert")
+ 
+output = sg.Text(key="output")
+ 
+ 
+window = sg.Window('Km to Miles Converter',
+                   layout=[[label, input_box], [miles_button, output]],
+                   font=('Helvetica', 20))
+ 
+while True:
+    event, values = window.read()
+    match event:
+        case "Convert":
+            km = values["kms"]
+            result = km_to_miles(km)
+            window['output'].update(value=result)
+        case sg.WIN_CLOSED:
+            break
+ 
+window.close()
+However, when the user runs the code above, enters a number, and presses the Convert button, the program stops, and an error is displayed in the command line:
+
+TypeError: can't multiply sequence by non-int of type 'float'
+
+
+
+
+
+
+Place the code in your IDE and try to troubleshoot and fix the error.
+
+Solution
+
+Day 17, Bug Fixing Exercise 1
+Explanation
+
+Line 23 was
+
+km = values["kms"]
+
+but it should be
+km = float(values["kms"])
+
+We need to convert the kilometers to a float type because they are originally a string.
+Note: that the code below will not run because the editor does not support PySimpleGUI. Use your local IDE to run the code instead.
+
+import PySimpleGUI as sg
+
+
+def km_to_miles(km):
+    return km / 1.6
+
+
+label = sg.Text("Kilometers: ")
+input_box = sg.InputText(tooltip="Enter todo", key="kms")
+miles_button = sg.Button("Convert")
+
+output = sg.Text(key="output")
+
+
+window = sg.Window('Km to Miles Converter',
+                   layout=[[label, input_box], [miles_button, output]],
+                   font=('Helvetica', 20))
+
+while True:
+    event, values = window.read()
+    match event:
+        case "Convert":
+            km = float(values["kms"])
+            result = km_to_miles(km)
+            window['output'].update(value=result)
+        case sg.WIN_CLOSED:
+            break
+
+window.close()
+
+------------------
+
+ FAQ
+Q1: How can we have more structured layouts using PySimpleGUI?
+
+A: For more structured layouts, you can use sg.Column to create column instances. Here is an example:
+
+import PySimpleGUI as sg
+ 
+# Prepare the widgets for the left column
+left_column_content = [[sg.Text('Left 1')],
+                       [sg.Text('Left 2')]]
+ 
+# Prepare the widgets for the right column
+right_column_content = [[sg.Text('Right 1')],
+                        [sg.Text('Right 2')]]
+ 
+ 
+# Construct the Column widgets
+left_column = sg.Column(left_column_content)
+right_column = sg.Column(right_column_content)
+ 
+# Construct the layout
+layout = [[left_column, right_column]]
+ 
+# Construct and display the window
+window = sg.Window('Columns', layout)
+window.read()
+window.close()
+That will produce the following output. Left 1 and Left 2 are part of the left column, while Right 1 and Right 2 are part of the right column.
+
+
+

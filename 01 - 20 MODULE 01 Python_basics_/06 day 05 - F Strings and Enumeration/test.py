@@ -1,0 +1,1 @@
+print(dir(list.clear.__get__))

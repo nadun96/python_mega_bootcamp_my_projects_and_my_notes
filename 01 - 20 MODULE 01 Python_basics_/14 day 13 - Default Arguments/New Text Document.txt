@@ -1,0 +1,210 @@
+Doc Strings
+------------
+first Line 
+use triple quotes
+
+
+-----------------------------------------
+Coding Exercise 1
+
+Define a get_age function that:
+
+1. has two parameters, year_of_birth and current_year .
+
+2. the current_year  parameter should be a default parameter. The default value should be the current year.
+
+3. the function should calculate and return the age of the user given the year_of_birth and the current_year.
+
+import datetime
+
+def get_age(year_of_birth, current_year=None):
+    if current_year is None:
+        current_year = datetime.datetime.now().year
+    age = current_year - year_of_birth
+    return age
+
+# Example usage:
+year_of_birth = 1990
+current_year = 2024
+age = get_age(year_of_birth, current_year)
+print(age)  # Output: 34
+----------------------------------------------
+
+Coding Exercise 2
+Write a get_nr_items function that:
+
+1. gets as a parameter one string with commas. E.g., "john,lisa, teresa"
+
+2. the function should return the number of items divided by commas in that string (i.e., that would be three items in the above example)
+
+2. returns the number of items.
+
+def get_nr_items(string):
+    items = string.split(',')
+    return len(items)
+
+# Example usage:
+string = "john,lisa,teresa"
+num_items = get_nr_items(string)
+print(num_items)  # Output: 3
+
+---------------------------------------------
+
+
+Coding Exercise 3
+Define a function that calculates the area of a square.
+
+For example, if I was to call your function with foo(7) the output would be 49. If I called it with foo(3)  it would return 9, and so on. Note that you don't have to name your function foo. Give it any name you want.
+
+def square_area(side_length):
+    return side_length ** 2
+
+# Example usage:
+result1 = square_area(7)
+print(result1)  # Output: 49
+
+result2 = square_area(3)
+print(result2)  # Output: 9
+
+--------------------------------------------------
+Coding Exercise 4
+Define a function that:
+
+(1) takes a temperature as a parameter
+
+(2) returns "Warm" if the temperature is greater than 7
+
+(3) returns "Cold" if the temperature is equal to or less than 7
+
+If I called your function with foo(10) it would return Warm. If I called it with foo(7) or foo(5) it would return Cold in both cases, and so on.
+
+def temperature_feeling(temperature):
+    if temperature > 7:
+        return "Warm"
+    else:
+        return "Cold"
+
+# Example usage:
+result1 = temperature_feeling(10)
+print(result1)  # Output: Warm
+
+result2 = temperature_feeling(7)
+print(result2)  # Output: Cold
+
+result3 = temperature_feeling(5)
+print(result3)  # Output: Cold
+
+-----------------------------------------------------
+
+Coding Exercise 5
+Define a function that:
+
+(1) takes a string as a parameter
+
+(2) returns False if the string contains less than 8 characters
+
+(3) returns True if the string contains 8 or more characters
+
+In other words, if I called your function with foo("mypass") it would return False. If I called it with foo("mylongpassword") it would return True, and so on.
+
+def check_string_length(string):
+    return len(string) >= 8
+
+# Example usage:
+result1 = check_string_length("mypass")
+print(result1)  # Output: False
+
+result2 = check_string_length("mylongpassword")
+print(result2)  # Output: True
+
+-------------------------------------------------------------
+
+Bug-Fixing Exercises
+Bug-Fixing Exercise 1
+The following formula calculates the free-fall time of an object.
+
+
+h is the free-fall distance and g is the gravity. On Earth, gravity is 9.80665 m/s2.
+
+Given the above information, we have created a program that calculates the free-fall time given the free-fall distance h and the gravity g which will be a default parameter with a value of 9.80665:
+
+def calculate_time(g=9.80665, h):
+    t = (2 * h / g) ** 0.5
+    return t
+    
+  
+time = calculate_time(100)
+print(time)
+However, the script produces an error. Try running the script in your IDE and then fix the error so the program successfully calculates the free-fall time.
+
+Solution
+
+Bug-Fixing Exercises
+Bug-Fixing Exercise 1
+The following formula calculates the free-fall time of an object.
+
+
+h is the free-fall distance and g is the gravity. On Earth, gravity is 9.80665 m/s2.
+
+Given the above information, we have created a program that calculates the free-fall time given the free-fall distance h and the gravity g which will be a default parameter with a value of 9.80665:
+
+def calculate_time(g=9.80665, h):
+    t = (2 * h / g) ** 0.5
+    return t
+    
+  
+time = calculate_time(100)
+print(time)
+However, the script produces an error. Try running the script in your IDE and then fix the error so the program successfully calculates the free-fall time.
+
+Solution
+Bug-Fixing Exercises
+Bug-Fixing Exercise 1
+The following formula calculates the free-fall time of an object.
+
+
+h is the free-fall distance and g is the gravity. On Earth, gravity is 9.80665 m/s2.
+
+Given the above information, we have created a program that calculates the free-fall time given the free-fall distance h and the gravity g which will be a default parameter with a value of 9.80665:
+
+def calculate_time(g=9.80665, h):
+    t = (2 * h / g) ** 0.5
+    return t
+    
+  
+time = calculate_time(100)
+print(time)
+However, the script produces an error. Try running the script in your IDE and then fix the error so the program successfully calculates the free-fall time.
+
+Solution
+
+Day 13, Bug Fixing Exercise 1
+Explanation
+
+Line 1 was
+
+def calculate_time(g=9.80665, h):
+
+but it should be
+
+def calculate_time(h, g=9.80665):
+
+Non-default parameters such as "h" should come first in a function definition, then the default parameters. 
+
+def calculate_time(h, g=9.80665):
+    t = (2 * h / g) ** 0.5
+    return t
+    
+  
+time = calculate_time(100)
+print(time)
+------------------------------------------
+
+FAQ
+Q1: We are storing the to-do items in a text file. What would happen if we stored them in an Excel file?
+
+A: If we worked with Excel files instead of text files, we would need to define other functions which would contain code elements that handle Excel files. It is recommended not to delete or change the existing functions but to simply add other functions in the functions.py file. Later in the course, we will cover how to work with Excel files as well.
+
+------------------------------------------
+
+

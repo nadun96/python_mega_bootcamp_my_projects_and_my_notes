@@ -1,0 +1,32 @@
+Objects 
+Variables 
+Functions
+Methods 
+List  -Homogeneous 
+Tuples -Heterogeneous
+Code Blocks 
+f-strings
+External Files
+List Comprehensions
+Errors
+Comments
+Modules
+Libraries
+Web and Desktop GUIs
+
+
+-----------------------
+
+CLI
+
+pwd #print current directory
+touch filename.type #create file
+ls *.txt #retiurn all text files in dir
+mkdir data #create dir
+cd path #change path
+rm filename.type # delete file
+rm -r data #delete dir
+mv oldname newname #rename
+cp target dest # copy
+nano filename.type #edit text
+cat filename.type #print content of fiels

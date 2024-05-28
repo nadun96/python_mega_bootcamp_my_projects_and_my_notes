@@ -1,0 +1,8 @@
+Learning Approach from Now On
+Why students trying to make the app themselves is very important
+because of the same reason that the only way of learning to drive the car is to drive a car. You have to put yourself in an uncomfortable position.  Not knowing to drive a car and being sitted in the drivers position engages your brain. That is how you learn. If you don’t put your brain in a difficult position, if you don’t stimulate it, your brain will not be open to new information. Until now I explained you what the thrush is, what the brakes do, hiw to use them. But if I don’t put you out there in the road, you will never be able to use all that you learned and be able to reach a destination with your car. And I am here to mentor you. The course is designed that way to serve as an interactive mentoring program. You do programming on your own. You will make many mistakes. And I will show you what mistakes you made and what is the right way. And you will learn from your mistakes. That is called training. And it works. Good luck.
+
+I asked students how they would like to learn. A major part of them wanted to see me build apps (highlight "With fresher like me, 1 is..."). The problem is you will never learn to build something by just watching. Our brains simply don't work like that. However, I do recognize the need to see a developer build real-world apps. That's why I came up with implementing both methods. Students get to drive the car first. Then, they see me drive it and understand what they did wrong. Then, they drive it again, and this repetition will close all the gaps until you can drive on your own, until you can create apps on your own.
+-----------------------------------
+
+

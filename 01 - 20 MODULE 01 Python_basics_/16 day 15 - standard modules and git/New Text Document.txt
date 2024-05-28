@@ -1,0 +1,204 @@
+import time
+time.strftime("%Y")
+
+
+import csv
+import globe
+import shutil
+import webbrowser
+
+
+https://docs.python.org/3/py-modindex.html
+
+
+Coding Exercise 1
+Congratulations on coming this far! That is a BIG achievement!
+
+
+Throughout the next few days, we will gradually migrate from coding exercises to a new type of activity - projects. Projects will require you to code longer scripts. Projects will finally replace coding exercises on Day 20. Today, we will have a coding exercise that looks more like a (small) project. Please read the instructions below.
+
+
+
+Coding Exercise 1
+Your task is to create a program that generates a random whole number. Here is how the program should behave:
+
+
+
+
+As you can see, the program first asks the user to enter a whole number. Then, once the user enters a number, the program asks the user again to enter another number.
+
+Then, the program returns a random number that falls between the two whole numbers. Here is another example:
+
+
+Note: To create this program, you might need to do some internet research or use the Python module index to find out what module and what function of that module you can use to generate random numbers. While it is easy for me to provide some clues here on what module you should use, searching for information and becoming familiar with programming community sites such as Stackoverflow is part of the programming skillset you should acquire. Thus, it is essential to practice such skills as well so you are independent after you finish the course.
+
+Solution 1
+
+import random
+
+# Get two numbers from the user and covert them to integers
+lower_bound = int(input("Enter the lower bound: "))
+upper_bound = int(input("Enter the upper bound: "))
+
+# Pick a random int using randint()
+rand = random.randint(lower_bound, upper_bound) 
+
+print(rand)
+
+Solution 2
+
+import random
+
+# Get two numbers from the user and covert them to integers
+lower_bound = int(input("Enter the lower bound: "))
+upper_bound = int(input("Enter the upper bound: "))
+
+# Pick a random int using randrange()
+rand = random.randrange(lower_bound, upper_bound + 1) # We add 1 to upper_bound because randrange does not include the upper_bound number.
+
+print(rand)
+
+---------------------------
+
+
+Bug-Fixing Exercises
+Bug-Fixing Exercise 1
+Please have a look at the following scripts:
+
+parsers.py
+
+def parse(user_input):
+    """Extract the values split by a comma in a string
+    and return the two values via a dictionary.
+    """
+    # Get the two values in a list
+    parts = user_input.split(" ")
+    
+    # Store the two values in variables 
+    lower_bound = float(parts[0])
+    upper_bound = float(parts[1])
+    
+    # Inject the values in a dictionary
+    return {"lower_bound": lower_bound, "upper_bound": upper_bound}
+
+
+main.py
+
+from parsers import parse 
+import random
+ 
+# Ask the user to enter a lower and an upper bound divided by a comma
+user_input = input("Enter a lower bound and an uppwer bound divided a comma (e.g., 2,10)")
+ 
+# Parse the user string by calling the parse function
+parsed = parse(user_input)
+ 
+# Pick a random int between the two numbers
+rand = random.randint(parsed['lower_bound'], parsed['upper_bound'])
+ 
+print(rand)
+When the user executes main.py file, an error is produced. Place the two files in your IDE and try to debug the program.
+
+
+Day 15, Bug Fixing Exercise 1
+Explanation
+
+Lines 5-10 of parsers.py were
+
+    # Get the two values in a list
+
+    parts = user_input.split(" ")
+
+
+
+    # Store the two values in variables 
+
+    lower_bound = float(parts[0])
+
+    upper_bound = float(parts[1])
+
+
+
+but they should be
+
+    # Get the two values in a list
+
+    parts = user_input.split(",")
+
+
+
+    # Store the two values in variables 
+
+    lower_bound = int(parts[0])
+
+    upper_bound = int(parts[1])
+
+
+
+The program was not splitting the user input at the comma.It was also not converting the two input values to integers.
+
+
+#main.py
+
+from parsers import parse 
+import random
+
+# Ask the user to enter a lower and an upper bound divided by a comma
+user_input = input("Enter a lower bound and an uppwer bound divided a comma (e.g., 2,10)")
+
+# Parse the user string by calling the parse function
+parsed = parse(user_input)
+
+# Pick a random int between the two numbers
+rand = random.randint(parsed['lower_bound'], parsed['upper_bound'])
+
+print(rand)
+
+#parsers.py
+
+def parse(user_input):
+    """Extract the values split by a comma in a string
+    and return the two values via a dictionary.
+    """
+    # Get the two values in a list
+    parts = user_input.split(",")
+    
+    # Store the two values in variables 
+    lower_bound = int(parts[0])
+    upper_bound = int(parts[1])
+    
+    # Inject the values in a dictionary
+    return {"lower_bound": lower_bound, "upper_bound": upper_bound}
+
+#parsers_with_bug.py
+
+def parse(user_input):
+    """Extract the values split by a comma in a string
+    and return the two values via a dictionary.
+    """
+    # Get the two values in a list
+    parts = user_input.split(" ")
+    
+    # Store the two values in variables 
+    lower_bound = float(parts[0])
+    upper_bound = float(parts[1])
+    
+    # Inject the values in a dictionary
+    return {"lower_bound": lower_bound, "upper_bound": upper_bound}
+-----------------------------------------
+
+
+FAQ
+Q1: Why are some standard modules written in C and others written in Python?
+
+A: Usually, modules are prototyped in Python, but later they may be rewritten in C to speed them up.
+
+
+
+Q2: Are there other modules besides the ones listed on the Python Module Index page?
+
+A: The list of modules on the Python Module Index page is the complete list of standard modules. These modules come shipped with the Python interpeter. However, there are other third-party modules created by the vast Python community. Such third-party modules need to be installed first and then used. We will cover third-party modules later in the course.
+
+---------------------------------------
+
+

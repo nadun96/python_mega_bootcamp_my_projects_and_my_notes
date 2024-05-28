@@ -1,0 +1,83 @@
+List Comprehension
+------------------
+
+new_todos = [item.strip('\n') for item in todos ]
+
+Coding Exercise 1
+Extend the given code (in the exercise area) so the code capitalizes all the names and surnames of the list and then prints the new list. The output of your code should be as below:
+
+['John Smith', 'Jay Santi', 'Eva Kuki']
+names = ["john smith", "jay santi", "eva kuki"]
+
+# Capitalize each name and surname
+capitalized_names = [name.title() for name in names]
+
+# Print the new list
+print(capitalized_names)
+
+
+Coding Exercise 2
+Extend the given code so the code prints out a list containing the number of characters for each username.
+
+The output of your code should be as below:
+
+[9, 11, 11]
+
+usernames = ["john 1990", "alberta1970", "magnola2000"]
+
+# Capitalize each name and surname
+capitalized_names = [name.title() for name in usernames]
+
+# Calculate the number of characters for each name
+name_lengths = [len(name) for name in capitalized_names]
+
+# Print the list containing the number of characters for each name
+print(name_lengths)
+
+
+Bug-Fixing Exercise 1
+The code below tries to write the items of temperatures each in one line in the file.txt list. However, the code has an error. Try to fix the error.
+
+temperatures = [10, 12, 14]
+ 
+file = open("file.txt", 'w')
+ 
+file.writelines(temperatures)
+
+Explanation
+
+A new line was added to the code to convert the numbers of the list to strings so they can be written to the text file:
+
+temperatures = [str(i) + '\n' for i in temperatures]
+
+temperatures = [10, 12, 14]
+temperatures = [str(i) + '\n' for i in temperatures]
+file = open("file.txt", 'w')
+
+file.writelines(temperatures)
+
+
+Bug-Fixing Exercise 2
+The code below tries to convert all the numbers to integers. However, the code has an error. Try to fix the error.
+
+numbers = [10.1, 12.3, 14.7]
+numbers = [int(number) for item in numbers]
+print(numbers)
+
+Day 7, Bug Fixing Exercise 2
+Explanation
+
+Line 2 was
+
+numbers = [int(number) for item in numbers]
+
+but it should be
+numbers = [int(item) for item in numbers]
+Since we are using "item" in "for item", we should use "item" inside int() too. 
+
+numbers = [10.1, 12.3, 14.7]
+numbers = [int(item) for item in numbers]
+print(numbers)
+
+
+

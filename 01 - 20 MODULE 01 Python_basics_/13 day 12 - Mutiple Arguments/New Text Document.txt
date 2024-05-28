@@ -1,0 +1,66 @@
+Bug-Fixing Exercise 1
+Alina has created a speed calculation function. She traveled a total of 200 miles today which took her two hours. She wants to use her function to calculate the average speed.
+
+def speed(distance, time):
+    return distance / time
+    
+print(speed([200, 4]))
+However, when she calls the function (as you see below), she gets an error:
+
+TypeError: speed() missing 1 required positional argument: 'time'
+
+Try fixing the code so she gets 50 as output.
+
+Solution
+
+def speed(distance, time):
+    return distance / time
+    
+print(speed(200, 4))
+
+
+Day 12, Bug Fixing Exercise 1
+Explanation
+
+Line 4 was
+
+print(speed([200, 4]))
+
+but it should be
+
+print(speed(200, 4))
+
+We remove the square brackets around 200, 4 here because the function expects two numbers as arguments, not a list.
+
+Line 4 was
+
+print(speed(5, 300))
+
+but it should be
+
+print(speed(300, 5))
+
+The order of the arguments was wrong.
+
+def speed(distance, time):
+    return distance / time
+    
+print(speed(300, 5))
+
+
+Bug-Fixing Exercise 2
+This time, Alina traveled 300 miles and it took her 5 hours. However, she is not getting the correct output from its function. Try fixing the code:
+
+def speed(distance, time):
+    return distance / time
+    
+print(speed(5, 300))
+Solution
+
+
+
+FAQ
+Q1: Can we let the user specify the name of the text file instead of having the program use the same todos.txt name always?
+
+A: Technically, that is possible, but it would be a bad design idea. The name of the file is not a user's concern. It is a detail of the backend of the program. Asking the user to specify the text filename is like asking the customer in a cafe to choose the color of the container where the coffee beans should be placed. The container is part of the cafe backend, whereas the customer is only interested in the frontend components (i.e., the brewed coffee).
+
